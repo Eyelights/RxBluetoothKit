@@ -41,8 +41,7 @@ public class Characteristic {
     }
 
     convenience init(characteristic: CBCharacteristic, peripheral: Peripheral) {
-        let service = Service(peripheral: peripheral, service: characteristic.service)
-        self.init(characteristic: characteristic, service: service)
+        self.init(characteristic: characteristic, service: Service(peripheral: peripheral, service: characteristic.service!))
     }
 
     /// Function that triggers descriptors discovery for characteristic.
